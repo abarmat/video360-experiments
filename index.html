@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <link href="css/video-js-cdn.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <video id="my-video" class="video-js" crossorigin="anonymous" controls preload="auto" width="640" height="264" data-setup="{}">
+      <source src="https://s3-us-west-2.amazonaws.com/labs.abarmat.com/video-360-1.mp4" type='video/mp4'>
+    </video>
+
+    <script src="js/video.min.js"></script>
+    <script src="js/three.min.js"></script>
+    <script src="js/videojs-panorama.v5.min.js"></script>
+    <script>
+    (function (window, videojs) {
+      var player = window.player = videojs('my-video')
+      player.panorama({
+        clickToToggle: true,
+        clickAndDrag: true,
+        autoMobileOrientation: true,
+        initFov: 100,
+        callback: function () {
+          player.play()
+        }
+      })
+    }(window, window.videojs))
+    </script>
+  </body>
+</html>
